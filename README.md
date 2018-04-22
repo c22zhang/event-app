@@ -1,4 +1,5 @@
 # event-app
+EDIT 4/22 - There is a small bug with the login screen where you have to press the login button more than once in order to actually log in. I believe that this has something to do with the asynchronous completion handler for querying CloudKit not always loading the user data before pressing the button, but I am currently unable to fix it. If you're sure your username and password are correct, just keep pressing the login button and it should work eventually.
 
 # iOS Final Project Proposal
 
