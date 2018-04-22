@@ -28,16 +28,32 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func createNewUser() -> CKRecord? {
+        guard let username = userNameText.text else{
+            return nil
+        }
+        guard let password = passwordText.text else{
+            return nil
+        }
+        guard let name = nameText.text else{
+            return nil
+        }
+        guard let age = Int(ageText.text!) else{
+            return nil
+        }
+        guard let email = emailText.text else{
+            return nil
+        }
+        
+        let newRecord = CKRecord(recordType: "AppUser")
+        newRecord["Username"] = username as CKRecordValue
+        newRecord["Password"] = password as CKRecordValue
+        newRecord["Name"] = name as CKRecordValue
+        newRecord["Age"] = age as CKRecordValue
+        newRecord["Email"] = email as CKRecordValue
+        
+        return newRecord
     }
-    */
+    
 
 }

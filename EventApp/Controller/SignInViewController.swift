@@ -38,7 +38,9 @@ class SignInViewController: UIViewController {
                 return
             }
             else{
-                self.user = records![0]
+                DispatchQueue.main.sync {
+                    self.user = records![0]
+                }
             }
         }
     }
@@ -59,10 +61,11 @@ class SignInViewController: UIViewController {
         let userTuple = verifyTextFields()
         if userTuple.username != nil && userTuple.password != nil{
             getUserFromDB(userTuple.username!)
-            if let currentUser = self.user {
-                if currentUser["Password"] as? String == userTuple.password{
-                    return true
-                }
+        }
+        if let currentUser = self.user{
+            if currentUser["Password"] as? String == userTuple.password
+                && currentUser["Username"] as? String == userTuple.username {
+                return true
             }
         }
         return false
@@ -83,6 +86,23 @@ class SignInViewController: UIViewController {
         if segue.identifier == "LoginSegue"{
             let controller = segue.destination as! MainEventsTableViewController
             controller.currentUser = self.user
+        }
+    }
+    
+    @IBAction func unwindNewUser(_ unwindSegue: UIStoryboardSegue){
+        if let signupController = unwindSegue.source as? SignUpViewController{
+            let record = signupController.createNewUser()
+            if let newRecord = record{
+                print(newRecord)
+                let privateDB = CKContainer.default().privateCloudDatabase
+                privateDB.save(newRecord, completionHandler: { (ckRecord: CKRecord?, error: Error?) -> Void in
+                    print("saving")
+                    if let error = error{
+                        print("An error occurred: \(error)")
+                        return
+                    }
+                })
+            }
         }
     }
 
