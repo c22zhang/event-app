@@ -28,21 +28,27 @@ class SignInViewController: UIViewController {
         let privateDB = CKContainer.default().privateCloudDatabase
         let predicate = NSPredicate(format: "%K == %@", "Username", username)
         let query = CKQuery(recordType: "AppUser", predicate: predicate)
-        privateDB.perform(query, inZoneWith: nil) { (records: [CKRecord]?, error: Error?) -> Void in
-            if let error = error{
-                print("An error occurred: \(error)")
-                return
-            }
-            else if (records!.count == 0) || (records!.count > 1){
-                print("Error authenticating user")
-                return
-            }
-            else{
-                DispatchQueue.main.sync {
+        let queryGroup = DispatchGroup()
+        queryGroup.enter()
+        DispatchQueue.global().async{
+            privateDB.perform(query, inZoneWith: nil) { (records: [CKRecord]?, error: Error?) -> Void in
+                if let error = error{
+                    print("An error occurred: \(error)")
+                    queryGroup.leave()
+                    return
+                }
+                else if (records!.count == 0) || (records!.count > 1){
+                    print("Error authenticating user")
+                    queryGroup.leave()
+                    return
+                }
+                else{
                     self.user = records![0]
+                    queryGroup.leave()
                 }
             }
         }
+        queryGroup.wait()
     }
     
     private func verifyTextFields() -> (username: String?, password: String?){

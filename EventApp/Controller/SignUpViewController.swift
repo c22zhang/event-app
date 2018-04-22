@@ -92,9 +92,6 @@ class SignUpViewController: UIViewController {
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        
-        //this is a terrible way to deal with asynchronous function calls but works for now
-        //sleep(2)
         return determineDuplicateUser()!
     }
 }
