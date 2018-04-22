@@ -9,46 +9,80 @@
 import UIKit
 import CloudKit
 
+/*
+ Handy date to String extension from https://stackoverflow.com/questions/42524651/convert-nsdate-to-string-in-ios-swift
+ */
+extension Date{
+    func toString( dateFormat format  : String ) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+}
+
 class MainEventsTableViewController: UITableViewController {
 
     var currentUser: CKRecord?
+    var events: [CKRecord]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        fetchEvents()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    private func fetchEvents(){
+        let publicDB = CKContainer.default().publicCloudDatabase
+        let predicate = NSPredicate(format: "TRUEPREDICATE")
+        let query = CKQuery(recordType: "Event", predicate: predicate)
+        publicDB.perform(query, inZoneWith: nil){(records: [CKRecord]?, error: Error?) -> Void in
+            if let error = error{
+                print("An error occurred while loading the events \(error)")
+                return
+            }
+            if let records = records{
+                self.events = records
+            }
+            DispatchQueue.main.async{
+                self.tableView.reloadData()
+            }
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if let records = events{
+            return records.count
+        }
         return 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+        if let records = events{
+            let eventName = records[indexPath.row]["Name"] as! String
+            let eventDate = records[indexPath.row]["Date"] as! Date
+            if let tmp = cell.textLabel{
+                tmp.text = eventName
+            }
+            if let tmp = cell.detailTextLabel{
+                tmp.text = eventDate.toString(dateFormat: "MM-dd")
+            }
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
