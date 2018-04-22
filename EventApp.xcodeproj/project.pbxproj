@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		BD382866208BDF1000705757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD382865208BDF1000705757 /* AppDelegate.swift */; };
-		BD382868208BDF1000705757 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD382867208BDF1000705757 /* ViewController.swift */; };
 		BD38286B208BDF1000705757 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD382869208BDF1000705757 /* Main.storyboard */; };
 		BD38286D208BDF1000705757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD38286C208BDF1000705757 /* Assets.xcassets */; };
 		BD382870208BDF1000705757 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD38286E208BDF1000705757 /* LaunchScreen.storyboard */; };
 		BD38287B208BDF1000705757 /* EventAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38287A208BDF1000705757 /* EventAppTests.swift */; };
 		BD382886208BDF1000705757 /* EventAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD382885208BDF1000705757 /* EventAppUITests.swift */; };
 		BD382896208BDF1D00705757 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD382895208BDF1D00705757 /* CloudKit.framework */; };
+		BD382899208C0C1500705757 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD382898208C0C1500705757 /* SignUpViewController.swift */; };
+		BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354B4208C0F200064D3C9 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,6 @@
 /* Begin PBXFileReference section */
 		BD382862208BDF1000705757 /* EventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD382865208BDF1000705757 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD382867208BDF1000705757 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD38286A208BDF1000705757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD38286C208BDF1000705757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD38286F208BDF1000705757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		BD382887208BDF1000705757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD382893208BDF1B00705757 /* EventApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventApp.entitlements; sourceTree = "<group>"; };
 		BD382895208BDF1D00705757 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		BD382898208C0C1500705757 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BD5354B4208C0F200064D3C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +104,9 @@
 		BD382864208BDF1000705757 /* EventApp */ = {
 			isa = PBXGroup;
 			children = (
+				BD382897208BFF5700705757 /* Controller */,
 				BD382893208BDF1B00705757 /* EventApp.entitlements */,
 				BD382865208BDF1000705757 /* AppDelegate.swift */,
-				BD382867208BDF1000705757 /* ViewController.swift */,
 				BD382869208BDF1000705757 /* Main.storyboard */,
 				BD38286C208BDF1000705757 /* Assets.xcassets */,
 				BD38286E208BDF1000705757 /* LaunchScreen.storyboard */,
@@ -137,6 +139,15 @@
 				BD382895208BDF1D00705757 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD382897208BFF5700705757 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BD382898208C0C1500705757 /* SignUpViewController.swift */,
+				BD5354B4208C0F200064D3C9 /* SignInViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,8 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD382868208BDF1000705757 /* ViewController.swift in Sources */,
+				BD382899208C0C1500705757 /* SignUpViewController.swift in Sources */,
 				BD382866208BDF1000705757 /* AppDelegate.swift in Sources */,
+				BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
