@@ -55,5 +55,46 @@ class SignUpViewController: UIViewController {
         return newRecord
     }
     
+    private func determineDuplicateUser() -> Bool?{
+        var shouldSegue: Bool?
+        let queryGroup = DispatchGroup()
+        queryGroup.enter()
+        if let username = userNameText.text{
+            let privateDB = CKContainer.default().privateCloudDatabase
+            let predicate = NSPredicate(format: "%K == %@", "Username", username)
+            let query = CKQuery(recordType: "AppUser", predicate: predicate)
+            DispatchQueue.global().async{
+                privateDB.perform(query, inZoneWith: nil) { (records: [CKRecord]?, error: Error?) -> Void in
+                    if let error = error{
+                        print("An error occurred: \(error)")
+                        shouldSegue = false
+                        queryGroup.leave()
+                        return
+                    }
+                    else if records!.count > 0{
+                        print("User already exists")
+                        shouldSegue = false
+                        queryGroup.leave()
+                        return
+                    }
+                    else{
+                        shouldSegue = true
+                        queryGroup.leave()
+                        return
+                    }
+                }
+            }
+        }
+        //there's currently a bit of delay with the Dispatch queues as the username is authenticated
+        //something to do in the future is to add some notifications/progress bar to make this more user friendly
+        queryGroup.wait()
+        return shouldSegue
+    }
 
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        //this is a terrible way to deal with asynchronous function calls but works for now
+        //sleep(2)
+        return determineDuplicateUser()!
+    }
 }
