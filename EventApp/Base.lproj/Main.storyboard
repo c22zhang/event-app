@@ -63,7 +63,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jg-lS-d4H">
-                                <rect key="frame" x="138" y="160" width="147" height="52"/>
+                                <rect key="frame" x="114" y="162" width="147" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Event App">
@@ -403,6 +403,34 @@
             </objects>
             <point key="canvasLocation" x="2383" y="950"/>
         </scene>
+        <!--Add Comment-->
+        <scene sceneID="MP7-8e-pxs">
+            <objects>
+                <viewController id="dsA-uC-fMJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8L2-Ga-0H7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xb-7C-Qog">
+                                <rect key="frame" x="67" y="116" width="240" height="355"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="FkW-lG-3JK"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Comment" id="fx1-fa-JQg">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="TXa-za-eAe"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="quB-QR-yBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2284" y="-1288.6056971514245"/>
+        </scene>
         <!--Comments-->
         <scene sceneID="XyE-eT-FmT">
             <objects>
@@ -428,6 +456,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="f41-Js-qbG" kind="show" identifier="CommentDetailSegue" id="dfE-94-oZb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -435,7 +466,13 @@
                             <outlet property="delegate" destination="XDe-vN-CRk" id="q8E-OG-MBN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Comments" id="EVl-30-kSL"/>
+                    <navigationItem key="navigationItem" title="Comments" id="EVl-30-kSL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9sk-0t-i54">
+                            <connections>
+                                <segue destination="dsA-uC-fMJ" kind="show" identifier="AddCommentSegue" id="Hrm-3m-UoC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y5T-jQ-TbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -491,14 +528,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ddG-Fq-DbP">
-                                <rect key="frame" x="12" y="413" width="351" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFe-Rh-lxm">
                                 <rect key="frame" x="143" y="384" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -507,11 +536,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7u-oq-K84">
-                                <rect key="frame" x="145" y="561" width="84" height="30"/>
+                                <rect key="frame" x="167" y="561" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View RSVPd"/>
+                                <state key="normal" title="Going"/>
                                 <connections>
-                                    <segue destination="hAx-mV-ZdB" kind="show" id="Y8f-Ob-C1o"/>
+                                    <segue destination="hAx-mV-ZdB" kind="show" identifier="GoingToEventSegue" id="Y8f-Ob-C1o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzF-kP-Kod">
@@ -519,6 +548,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="RSVP"/>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ddG-Fq-DbP">
+                                <rect key="frame" x="24" y="413" width="351" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="p08-0K-hom"/>
@@ -526,7 +563,7 @@
                     <navigationItem key="navigationItem" title="Event Detail" id="RPr-ge-AVp">
                         <barButtonItem key="rightBarButtonItem" title="Comments" id="bh0-RB-ez3">
                             <connections>
-                                <segue destination="XDe-vN-CRk" kind="show" id="Dhr-ci-8O5"/>
+                                <segue destination="XDe-vN-CRk" kind="show" identifier="GetCommentsSegue" id="Dhr-ci-8O5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -534,6 +571,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Spu-xB-Odk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2272.8000000000002" y="133.5832083958021"/>
+        </scene>
+        <!--Comment-->
+        <scene sceneID="zfo-ir-1vt">
+            <objects>
+                <viewController id="f41-Js-qbG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="akN-aa-cuI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZMq-LC-MF4">
+                                <rect key="frame" x="67" y="183" width="240" height="300.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sent By: User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caO-AE-br1">
+                                <rect key="frame" x="135" y="118" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Sxo-y5-Qcp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Comment" id="1aI-kQ-Jgq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W1Y-Na-6en" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3327" y="-576"/>
         </scene>
         <!--Going-->
         <scene sceneID="9v0-3z-jFK">
