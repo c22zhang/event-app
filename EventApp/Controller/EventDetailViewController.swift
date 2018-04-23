@@ -21,13 +21,11 @@ class EventDetailViewController: UIViewController {
     
     @IBAction func RSVPAction(_ sender: Any) {
         var references = event!["RSVP"] as! [CKReference]
-        print("Before \(event!.recordID)")
         let newReference = CKReference(recordID: currentUser!.recordID, action: .none)
         if !references.contains(newReference){
             references.append(newReference)
         }
         event!["RSVP"] = references as CKRecordValue
-        print("After \(event!.recordID)")
         let publicDB = CKContainer.default().publicCloudDatabase
         publicDB.save(event!) { (record: CKRecord?, error: Error?) in
             if let error = error{
@@ -54,18 +52,17 @@ class EventDetailViewController: UIViewController {
             descriptionText.isEditable = false
             
             let creator: CKReference = event["Creator"] as! CKReference
-            creatorLabel.text = EventDetailViewController.getUserFromID(reference: creator)!["Username"] as? String
+            creatorLabel.text = EventDetailViewController.getFromID(reference: creator, database: CKContainer.default().privateCloudDatabase)!["Username"] as? String
         }
     }
     
-    static func getUserFromID(reference: CKReference) -> CKRecord? {
+    static func getFromID(reference: CKReference, database: CKDatabase) -> CKRecord? {
         var creator: CKRecord?
         let id = reference.recordID
-        let privateDB = CKContainer.default().privateCloudDatabase
         let fetchGroup = DispatchGroup()
         fetchGroup.enter()
         DispatchQueue.global().async{
-            privateDB.fetch(withRecordID: id){ (record: CKRecord?, error: Error?) -> Void in
+            database.fetch(withRecordID: id){ (record: CKRecord?, error: Error?) -> Void in
                 if let error = error{
                     print("An error occurred when fetching the record: \(error)")
                     fetchGroup.leave()
@@ -93,6 +90,12 @@ class EventDetailViewController: UIViewController {
         if segue.identifier == "GoingToEventSegue"{
             let controller = segue.destination as! GoingTableViewController
             controller.event = self.event
+        }
+        else if segue.identifier == "GetCommentsSegue"{
+            let controller = segue.destination as! CommentsTableViewController
+            controller.event = self.event
+            controller.currentUser = self.currentUser
+            print("From Event detail view \(self.currentUser)")
         }
     }
     

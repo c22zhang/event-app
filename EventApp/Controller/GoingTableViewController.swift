@@ -27,7 +27,7 @@ class GoingTableViewController: UITableViewController {
     
     func fetchRSVPs(){
         for record in peopleGoing!{
-            RSVPs.append(EventDetailViewController.getUserFromID(reference: record)!)
+            RSVPs.append(EventDetailViewController.getFromID(reference: record, database: CKContainer.default().privateCloudDatabase)!)
         }
     }
 

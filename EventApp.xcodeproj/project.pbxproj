@@ -19,6 +19,9 @@
 		BD5354B7208C19290064D3C9 /* MainEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */; };
 		BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */; };
 		BD5354C0208D76020064D3C9 /* GoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354BF208D76020064D3C9 /* GoingTableViewController.swift */; };
+		BD5354C2208D9B5D0064D3C9 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354C1208D9B5D0064D3C9 /* CommentsTableViewController.swift */; };
+		BD5354C4208DA3930064D3C9 /* CommentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354C3208DA3930064D3C9 /* CommentDetailViewController.swift */; };
+		BD5354C6208DA8C10064D3C9 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354C5208DA8C10064D3C9 /* AddCommentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventsTableViewController.swift; sourceTree = "<group>"; };
 		BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		BD5354BF208D76020064D3C9 /* GoingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoingTableViewController.swift; sourceTree = "<group>"; };
+		BD5354C1208D9B5D0064D3C9 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
+		BD5354C3208DA3930064D3C9 /* CommentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailViewController.swift; sourceTree = "<group>"; };
+		BD5354C5208DA8C10064D3C9 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,9 @@
 				BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */,
 				BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */,
 				BD5354BF208D76020064D3C9 /* GoingTableViewController.swift */,
+				BD5354C1208D9B5D0064D3C9 /* CommentsTableViewController.swift */,
+				BD5354C3208DA3930064D3C9 /* CommentDetailViewController.swift */,
+				BD5354C5208DA8C10064D3C9 /* AddCommentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,8 +310,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD5354C2208D9B5D0064D3C9 /* CommentsTableViewController.swift in Sources */,
+				BD5354C6208DA8C10064D3C9 /* AddCommentViewController.swift in Sources */,
 				BD382899208C0C1500705757 /* SignUpViewController.swift in Sources */,
 				BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */,
+				BD5354C4208DA3930064D3C9 /* CommentDetailViewController.swift in Sources */,
 				BD382866208BDF1000705757 /* AppDelegate.swift in Sources */,
 				BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */,
 				BD5354C0208D76020064D3C9 /* GoingTableViewController.swift in Sources */,
