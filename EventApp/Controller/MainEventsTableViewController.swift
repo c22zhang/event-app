@@ -12,7 +12,7 @@ import CloudKit
 /*
  Handy date to String extension from https://stackoverflow.com/questions/42524651/convert-nsdate-to-string-in-ios-swift
  */
-extension Date{
+public extension Date{
     func toString( dateFormat format  : String ) -> String
     {
         let dateFormatter = DateFormatter()
@@ -119,14 +119,18 @@ class MainEventsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EventDetailSegue"{
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let controller = segue.destination as! EventDetailViewController
+                controller.event = self.events![indexPath.row]
+            }
+            
+        }
     }
-    */
 
 }

@@ -17,6 +17,7 @@
 		BD382899208C0C1500705757 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD382898208C0C1500705757 /* SignUpViewController.swift */; };
 		BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354B4208C0F200064D3C9 /* SignInViewController.swift */; };
 		BD5354B7208C19290064D3C9 /* MainEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */; };
+		BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BD382898208C0C1500705757 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BD5354B4208C0F200064D3C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventsTableViewController.swift; sourceTree = "<group>"; };
+		BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				BD382898208C0C1500705757 /* SignUpViewController.swift */,
 				BD5354B4208C0F200064D3C9 /* SignInViewController.swift */,
 				BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */,
+				BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD382899208C0C1500705757 /* SignUpViewController.swift in Sources */,
+				BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */,
 				BD382866208BDF1000705757 /* AppDelegate.swift in Sources */,
 				BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */,
 				BD5354B7208C19290064D3C9 /* MainEventsTableViewController.swift in Sources */,
