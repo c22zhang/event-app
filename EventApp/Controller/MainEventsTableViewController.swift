@@ -130,7 +130,6 @@ class MainEventsTableViewController: UITableViewController {
                 controller.event = self.events![indexPath.row]
                 controller.currentUser = currentUser
             }
-            
         }
     }
 

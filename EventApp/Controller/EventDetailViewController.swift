@@ -20,6 +20,22 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var descriptionText: UITextView!
     
     @IBAction func RSVPAction(_ sender: Any) {
+        var references = event!["RSVP"] as! [CKReference]
+        print("Before \(event!.recordID)")
+        let newReference = CKReference(recordID: currentUser!.recordID, action: .none)
+        if !references.contains(newReference){
+            references.append(newReference)
+        }
+        event!["RSVP"] = references as CKRecordValue
+        print("After \(event!.recordID)")
+        let publicDB = CKContainer.default().publicCloudDatabase
+        publicDB.save(event!) { (record: CKRecord?, error: Error?) in
+            if let error = error{
+                print("An error occurred while saving your RSVP \(error)")
+                return
+            }
+            self.event = record
+        }
     }
     
     var event: CKRecord?
