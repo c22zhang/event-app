@@ -22,6 +22,8 @@
 		BD5354C2208D9B5D0064D3C9 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354C1208D9B5D0064D3C9 /* CommentsTableViewController.swift */; };
 		BD5354C4208DA3930064D3C9 /* CommentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354C3208DA3930064D3C9 /* CommentDetailViewController.swift */; };
 		BD5354C6208DA8C10064D3C9 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354C5208DA8C10064D3C9 /* AddCommentViewController.swift */; };
+		BD5BF82C208E8EA30021F468 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF82B208E8EA30021F468 /* OptionsViewController.swift */; };
+		BD5BF82E208E9D6E0021F468 /* ChangeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF82D208E9D6E0021F468 /* ChangeAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		BD5354C1208D9B5D0064D3C9 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		BD5354C3208DA3930064D3C9 /* CommentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailViewController.swift; sourceTree = "<group>"; };
 		BD5354C5208DA8C10064D3C9 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		BD5BF82B208E8EA30021F468 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		BD5BF82D208E9D6E0021F468 /* ChangeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 				BD5354C1208D9B5D0064D3C9 /* CommentsTableViewController.swift */,
 				BD5354C3208DA3930064D3C9 /* CommentDetailViewController.swift */,
 				BD5354C5208DA8C10064D3C9 /* AddCommentViewController.swift */,
+				BD5BF82B208E8EA30021F468 /* OptionsViewController.swift */,
+				BD5BF82D208E9D6E0021F468 /* ChangeAccountViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			files = (
 				BD5354C2208D9B5D0064D3C9 /* CommentsTableViewController.swift in Sources */,
 				BD5354C6208DA8C10064D3C9 /* AddCommentViewController.swift in Sources */,
+				BD5BF82E208E9D6E0021F468 /* ChangeAccountViewController.swift in Sources */,
 				BD382899208C0C1500705757 /* SignUpViewController.swift in Sources */,
 				BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */,
 				BD5354C4208DA3930064D3C9 /* CommentDetailViewController.swift in Sources */,
@@ -319,6 +326,7 @@
 				BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */,
 				BD5354C0208D76020064D3C9 /* GoingTableViewController.swift in Sources */,
 				BD5354B7208C19290064D3C9 /* MainEventsTableViewController.swift in Sources */,
+				BD5BF82C208E8EA30021F468 /* OptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -94,6 +94,23 @@ class MainEventsTableViewController: UITableViewController {
                 controller.currentUser = currentUser
             }
         }
+        if segue.identifier == "OptionsSegue" {
+            let controller = segue.destination as! OptionsViewController
+            controller.events = self.events
+            controller.currentUser = currentUser
+        }
     }
-
+    
+    @IBAction func unwindChangedUser(_ unwindSegue: UIStoryboardSegue){
+        if let source = unwindSegue.source as? ChangeAccountViewController{
+            self.currentUser = source.editUserData()
+            let privateDB = CKContainer.default().privateCloudDatabase
+            privateDB.save(self.currentUser!, completionHandler: { (record: CKRecord?, error: Error?) -> Void in
+                if let error = error{
+                    print("Error when saving updated account info: \(error)")
+                    return
+                }
+            })
+        }
+    }
 }
