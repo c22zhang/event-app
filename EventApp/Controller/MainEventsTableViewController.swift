@@ -128,6 +128,7 @@ class MainEventsTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow{
                 let controller = segue.destination as! EventDetailViewController
                 controller.event = self.events![indexPath.row]
+                controller.currentUser = currentUser
             }
             
         }

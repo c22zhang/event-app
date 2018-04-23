@@ -23,6 +23,7 @@ class EventDetailViewController: UIViewController {
     }
     
     var event: CKRecord?
+    var currentUser: CKRecord?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +38,11 @@ class EventDetailViewController: UIViewController {
             descriptionText.isEditable = false
             
             let creator: CKReference = event["Creator"] as! CKReference
-            creatorLabel.text = EventDetailViewController.getCreatorFromID(reference: creator)!["Username"] as? String
+            creatorLabel.text = EventDetailViewController.getUserFromID(reference: creator)!["Username"] as? String
         }
     }
     
-    static func getCreatorFromID(reference: CKReference) -> CKRecord? {
+    static func getUserFromID(reference: CKReference) -> CKRecord? {
         var creator: CKRecord?
         let id = reference.recordID
         let privateDB = CKContainer.default().privateCloudDatabase
@@ -67,17 +68,15 @@ class EventDetailViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    
+        
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == ""{
-            
+        if segue.identifier == "GoingToEventSegue"{
+            let controller = segue.destination as! GoingTableViewController
+            controller.event = self.event
         }
     }
     

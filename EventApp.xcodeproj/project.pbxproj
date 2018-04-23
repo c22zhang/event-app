@@ -18,6 +18,7 @@
 		BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354B4208C0F200064D3C9 /* SignInViewController.swift */; };
 		BD5354B7208C19290064D3C9 /* MainEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */; };
 		BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */; };
+		BD5354C0208D76020064D3C9 /* GoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5354BF208D76020064D3C9 /* GoingTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		BD5354B4208C0F200064D3C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventsTableViewController.swift; sourceTree = "<group>"; };
 		BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		BD5354BF208D76020064D3C9 /* GoingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoingTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				BD5354B4208C0F200064D3C9 /* SignInViewController.swift */,
 				BD5354B6208C19290064D3C9 /* MainEventsTableViewController.swift */,
 				BD5354BD208D53170064D3C9 /* EventDetailViewController.swift */,
+				BD5354BF208D76020064D3C9 /* GoingTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */,
 				BD382866208BDF1000705757 /* AppDelegate.swift in Sources */,
 				BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */,
+				BD5354C0208D76020064D3C9 /* GoingTableViewController.swift in Sources */,
 				BD5354B7208C19290064D3C9 /* MainEventsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
