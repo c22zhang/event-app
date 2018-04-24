@@ -26,10 +26,13 @@ class CommentsTableViewController: UITableViewController {
     
     func fetchComments(){
         self.comments = []
-        let references = event!["Comments"] as! [CKReference]
-        for reference in references{
-            self.comments.append(EventDetailViewController.getFromID(reference: reference, database: CKContainer.default().publicCloudDatabase)!)
+        if let myReferences = event!["Comments"] {
+            let references = myReferences as! [CKReference]
+            for reference in references{
+                self.comments.append(EventDetailViewController.getFromID(reference: reference, database: CKContainer.default().publicCloudDatabase)!)
+            }
         }
+       
     }
 
     // MARK: - Table view data source
@@ -70,7 +73,6 @@ class CommentsTableViewController: UITableViewController {
         if segue.identifier == "AddCommentSegue" {
             let controller = segue.destination as! AddCommentViewController
             controller.currentUser = self.currentUser
-            print("from comment table view \(self.currentUser)")
         }
     }
     
@@ -93,7 +95,10 @@ class CommentsTableViewController: UITableViewController {
     }
     
     private func addCommentsToEvent(comment: CKRecord?) {
-        var references = event!["Comments"] as! [CKReference]
+        var references: [CKReference] = []
+        if let myReference = event!["Comments"]{
+            references = myReference as! [CKReference]
+        }
         let newReference = CKReference(recordID: comment!.recordID, action: .none)
         references.append(newReference)
         event!["Comments"] = references as CKRecordValue

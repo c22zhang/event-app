@@ -492,10 +492,12 @@
             </objects>
             <point key="canvasLocation" x="2454" y="1803"/>
         </scene>
-        <!--Create An Event-->
+        <!--Create New Event-->
         <scene sceneID="Ctf-VP-A5T">
             <objects>
-                <viewController id="xRW-yt-Foe" sceneMemberID="viewController">
+                <exit id="2x2-eu-Bfg" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCU-o0-qlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="xRW-yt-Foe" customClass="CreateEventsViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i2Z-90-8IY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -578,29 +580,40 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDV-1K-4Yd">
-                                <rect key="frame" x="251" y="183" width="80" height="30"/>
+                                <rect key="frame" x="211" y="184" width="160" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select Date"/>
                                 <connections>
-                                    <segue destination="CG3-hb-4eQ" kind="show" id="pTc-aj-iM9"/>
+                                    <segue destination="CG3-hb-4eQ" kind="show" identifier="PickDateSegue" id="pTc-aj-iM9"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="rNu-A6-twD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create An Event" id="xh1-Mn-5Bk">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="q4j-oq-OuT"/>
+                    <navigationItem key="navigationItem" title="Create New Event" id="ERt-3V-v94">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="2SW-0h-dsw">
+                            <connections>
+                                <segue destination="2x2-eu-Bfg" kind="unwind" unwindAction="unwindNewEvent:" id="Pdb-ag-wPP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="costText" destination="e0C-0z-1ts" id="adS-9E-a0H"/>
+                        <outlet property="dateButton" destination="hDV-1K-4Yd" id="J7N-GL-Tyv"/>
+                        <outlet property="descriptionText" destination="yQd-pF-Etk" id="Yxv-lI-8ZU"/>
+                        <outlet property="locationText" destination="iwX-v4-QA6" id="NOX-BH-tgZ"/>
+                        <outlet property="nameText" destination="zpL-dx-TUz" id="c8N-Kq-QJr"/>
+                        <outlet property="timeText" destination="iVO-a3-qeC" id="HcH-gW-q1N"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wCU-o0-qlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2381.5999999999999" y="949.47526236881572"/>
         </scene>
         <!--Select Date-->
         <scene sceneID="wpl-VK-jQS">
             <objects>
-                <viewController id="CG3-hb-4eQ" sceneMemberID="viewController">
+                <viewController id="CG3-hb-4eQ" customClass="DateSelectorViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lZ8-3b-iZZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -619,14 +632,21 @@
                                 <state key="normal" title="Save Date">
                                     <color key="titleColor" red="1" green="0.18769601120000001" blue="0.1657394858" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <segue destination="KYw-Ev-qwo" kind="unwind" unwindAction="unwindDateSelector:" id="ePF-yH-yjV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="BMJ-Qk-5d4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Date" id="pYQ-nQ-T5M"/>
+                    <connections>
+                        <outlet property="datePicker" destination="VRF-Pk-gxS" id="a8p-zn-KaM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t08-Fl-DKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KYw-Ev-qwo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3242" y="947"/>
         </scene>

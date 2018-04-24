@@ -34,7 +34,9 @@ class OptionsViewController: UIViewController {
         // Pass the selected object to the new view controller.
         switch segue.identifier! {
         case "CreateEventsSegue":
-            print("CreateEventsSegue")
+            let controller = segue.destination as! CreateEventsViewController
+            controller.currentUser = self.currentUser
+            controller.events = self.events
         case "MyEventsSegue":
             print("MyEventsSegue")
         case "AccountInfoSegue":

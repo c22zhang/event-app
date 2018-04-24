@@ -113,4 +113,21 @@ class MainEventsTableViewController: UITableViewController {
             })
         }
     }
+    
+    @IBAction func unwindNewEvent(_ unwindSegue: UIStoryboardSegue){
+        if let source = unwindSegue.source as? CreateEventsViewController{
+            print(source.createNewEvent())
+            let publicDB = CKContainer.default().publicCloudDatabase
+            publicDB.save(source.createNewEvent()!, completionHandler: { (record: CKRecord?, error: Error?) in
+                if let error = error{
+                    print("Error saving your new event \(error)")
+                    return
+                }
+                DispatchQueue.main.async{
+                    self.events!.append(record!)
+                    self.tableView.reloadData()
+                }
+            })
+        }
+    }
 }

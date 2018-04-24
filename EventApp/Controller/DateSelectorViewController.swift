@@ -10,9 +10,11 @@ import UIKit
 
 class DateSelectorViewController: UIViewController {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(datePicker.date)
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +23,9 @@ class DateSelectorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func getDate() -> Date {
+        return datePicker.date
+    }
 
     /*
     // MARK: - Navigation
