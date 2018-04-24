@@ -43,7 +43,8 @@ class OptionsViewController: UIViewController {
             let controller = segue.destination as! ChangeAccountViewController
             controller.currentUser = self.currentUser
         case "RSVPTableViewSegue":
-            print("RSVPTableViewSegue")
+            let controller = segue.destination as! RSVPTableViewController
+            controller.currentUser = self.currentUser
         default:
             break 
         }

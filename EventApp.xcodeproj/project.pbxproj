@@ -26,6 +26,7 @@
 		BD5BF82E208E9D6E0021F468 /* ChangeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF82D208E9D6E0021F468 /* ChangeAccountViewController.swift */; };
 		BD5BF830208EA44E0021F468 /* CreateEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF82F208EA44E0021F468 /* CreateEventsViewController.swift */; };
 		BD5BF832208EA6250021F468 /* DateSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF831208EA6250021F468 /* DateSelectorViewController.swift */; };
+		BD5BF834208EB8D50021F468 /* RSVPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF833208EB8D50021F468 /* RSVPTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		BD5BF82D208E9D6E0021F468 /* ChangeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountViewController.swift; sourceTree = "<group>"; };
 		BD5BF82F208EA44E0021F468 /* CreateEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventsViewController.swift; sourceTree = "<group>"; };
 		BD5BF831208EA6250021F468 /* DateSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorViewController.swift; sourceTree = "<group>"; };
+		BD5BF833208EB8D50021F468 /* RSVPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSVPTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				BD5BF82D208E9D6E0021F468 /* ChangeAccountViewController.swift */,
 				BD5BF82F208EA44E0021F468 /* CreateEventsViewController.swift */,
 				BD5BF831208EA6250021F468 /* DateSelectorViewController.swift */,
+				BD5BF833208EB8D50021F468 /* RSVPTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD5BF834208EB8D50021F468 /* RSVPTableViewController.swift in Sources */,
 				BD5BF832208EA6250021F468 /* DateSelectorViewController.swift in Sources */,
 				BD5354C2208D9B5D0064D3C9 /* CommentsTableViewController.swift in Sources */,
 				BD5354C6208DA8C10064D3C9 /* AddCommentViewController.swift in Sources */,
