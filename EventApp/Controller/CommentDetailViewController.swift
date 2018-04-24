@@ -19,7 +19,6 @@ class CommentDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(comment!)
         userLabel.text = "Sent By \(comment!["Username"] as! String)"
         timeLabel.text = (comment!["Time"] as! Date).toString(dateFormat: "MM-dd HH:mm")
         detailText.text = comment!["Comment"] as! String

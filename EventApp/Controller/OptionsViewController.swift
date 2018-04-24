@@ -38,7 +38,8 @@ class OptionsViewController: UIViewController {
             controller.currentUser = self.currentUser
             controller.events = self.events
         case "MyEventsSegue":
-            print("MyEventsSegue")
+            let controller = segue.destination as! MyEventsTableViewController
+            controller.currentUser = self.currentUser 
         case "AccountInfoSegue":
             let controller = segue.destination as! ChangeAccountViewController
             controller.currentUser = self.currentUser

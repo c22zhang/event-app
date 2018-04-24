@@ -27,6 +27,8 @@
 		BD5BF830208EA44E0021F468 /* CreateEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF82F208EA44E0021F468 /* CreateEventsViewController.swift */; };
 		BD5BF832208EA6250021F468 /* DateSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF831208EA6250021F468 /* DateSelectorViewController.swift */; };
 		BD5BF834208EB8D50021F468 /* RSVPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF833208EB8D50021F468 /* RSVPTableViewController.swift */; };
+		BD5BF836208EC94A0021F468 /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF835208EC94A0021F468 /* MyEventsTableViewController.swift */; };
+		BD5BF838208EDAD10021F468 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF837208EDAD10021F468 /* UserDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		BD5BF82F208EA44E0021F468 /* CreateEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventsViewController.swift; sourceTree = "<group>"; };
 		BD5BF831208EA6250021F468 /* DateSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorViewController.swift; sourceTree = "<group>"; };
 		BD5BF833208EB8D50021F468 /* RSVPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSVPTableViewController.swift; sourceTree = "<group>"; };
+		BD5BF835208EC94A0021F468 /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsTableViewController.swift; sourceTree = "<group>"; };
+		BD5BF837208EDAD10021F468 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,8 @@
 				BD5BF82F208EA44E0021F468 /* CreateEventsViewController.swift */,
 				BD5BF831208EA6250021F468 /* DateSelectorViewController.swift */,
 				BD5BF833208EB8D50021F468 /* RSVPTableViewController.swift */,
+				BD5BF835208EC94A0021F468 /* MyEventsTableViewController.swift */,
+				BD5BF837208EDAD10021F468 /* UserDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +340,8 @@
 				BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */,
 				BD5354C4208DA3930064D3C9 /* CommentDetailViewController.swift in Sources */,
 				BD382866208BDF1000705757 /* AppDelegate.swift in Sources */,
+				BD5BF836208EC94A0021F468 /* MyEventsTableViewController.swift in Sources */,
+				BD5BF838208EDAD10021F468 /* UserDetailViewController.swift in Sources */,
 				BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */,
 				BD5354C0208D76020064D3C9 /* GoingTableViewController.swift in Sources */,
 				BD5354B7208C19290064D3C9 /* MainEventsTableViewController.swift in Sources */,

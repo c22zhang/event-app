@@ -19,13 +19,24 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
     
+    var event: CKRecord?
+    var currentUser: CKRecord?
+    
     @IBAction func RSVPAction(_ sender: Any) {
-        var references = event!["RSVP"] as! [CKReference]
-        let newReference = CKReference(recordID: currentUser!.recordID, action: .none)
-        if !references.contains(newReference){
-            references.append(newReference)
+        var references: [CKReference]?
+        if let myReferences = event!["RSVP"]{
+            references = myReferences as! [CKReference]
+            let newReference = CKReference(recordID: currentUser!.recordID, action: .none)
+            if !references!.contains(newReference){
+                references!.append(newReference)
+            }
+            event!["RSVP"] = references! as CKRecordValue
         }
-        event!["RSVP"] = references as CKRecordValue
+        else{
+            references = []
+            references!.append(CKReference(recordID: currentUser!.recordID, action: .none))
+            event!["RSVP"] = references! as CKRecordValue
+        }
         let publicDB = CKContainer.default().publicCloudDatabase
         publicDB.save(event!) { (record: CKRecord?, error: Error?) in
             if let error = error{
@@ -34,10 +45,8 @@ class EventDetailViewController: UIViewController {
             }
             self.event = record
         }
+        
     }
-    
-    var event: CKRecord?
-    var currentUser: CKRecord?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +104,6 @@ class EventDetailViewController: UIViewController {
             let controller = segue.destination as! CommentsTableViewController
             controller.event = self.event
             controller.currentUser = self.currentUser
-            print("From Event detail view \(self.currentUser)")
         }
     }
     
