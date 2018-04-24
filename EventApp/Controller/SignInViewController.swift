@@ -16,9 +16,11 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var message: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        message.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +38,7 @@ class SignInViewController: UIViewController {
                     return
                 }
                 else if (records!.count == 0) || (records!.count > 1){
-                    print("Error authenticating user")
+                    self.message.text = "User doesn't exist."
                     queryGroup.leave()
                     return
                 }
@@ -69,9 +71,11 @@ class SignInViewController: UIViewController {
         if let currentUser = self.user{
             if currentUser["Password"] as? String == userTuple.password
                 && currentUser["Username"] as? String == userTuple.username {
+                self.message.text = ""
                 return true
             }
         }
+        self.message.text = "Invalid username or password."
         return false
     }
     

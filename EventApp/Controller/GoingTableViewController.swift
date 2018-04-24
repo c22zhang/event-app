@@ -19,7 +19,7 @@ class GoingTableViewController: UITableViewController {
         super.viewDidLoad()
         if let event = event{
             if let people = event["RSVP"]{
-                peopleGoing = event["RSVP"] as! [CKReference]
+                peopleGoing = people as? [CKReference]
             }
         }
         fetchRSVPs()

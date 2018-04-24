@@ -102,15 +102,17 @@ class MainEventsTableViewController: UITableViewController {
     
     @IBAction func unwindNewEvent(_ unwindSegue: UIStoryboardSegue){
         if let source = unwindSegue.source as? CreateEventsViewController{
-            CKUtils.getPublicDatabase().save(source.createNewEvent()!, completionHandler: { (record: CKRecord?, error: Error?) in
-                if CKUtils.handleError(error, "Error saving the event: ", nil){
-                    return
-                }
-                DispatchQueue.main.async{
-                    self.events!.append(record!)
-                    self.tableView.reloadData()
-                }
-            })
+            if let newEvent = source.createNewEvent(){
+                CKUtils.getPublicDatabase().save(newEvent, completionHandler: { (record: CKRecord?, error: Error?) in
+                    if CKUtils.handleError(error, "Error saving the event: ", nil){
+                        return
+                    }
+                    DispatchQueue.main.async{
+                        self.events!.append(record!)
+                        self.tableView.reloadData()
+                    }
+                })
+            }
         }
     }
     

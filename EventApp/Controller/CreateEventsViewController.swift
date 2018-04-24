@@ -17,6 +17,7 @@ class CreateEventsViewController: UIViewController {
     @IBOutlet weak var costText: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var dateButton: UIButton!
+    @IBOutlet weak var message: UILabel!
     
     var currentUser: CKRecord?
     var events: [CKRecord]?
@@ -24,6 +25,7 @@ class CreateEventsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.message.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +46,6 @@ class CreateEventsViewController: UIViewController {
                 return event
             }
         }
-        print("There are necessary fields that were left empty or invalid.")
         return nil
     }
     
@@ -62,7 +63,22 @@ class CreateEventsViewController: UIViewController {
     @IBAction func unwindDateSelector(_ unwindSegue: UIStoryboardSegue){
         if let source = unwindSegue.source as? DateSelectorViewController{
             self.newEventDate = source.getDate()
-            self.dateButton.setTitle(self.newEventDate!.toString(dateFormat: "MM-dd HH:mm"), for: .normal)
+            self.dateButton.setTitle(self.newEventDate!.toString(dateFormat: "MM-dd"), for: .normal)
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "PickDateSegue"{
+            return true
+        }
+        else{
+            if !hasAllRequiredFields(){
+                self.message.text = "Missing required fields!"
+            }
+            else{
+                self.message.text = ""
+            }
+            return hasAllRequiredFields()
         }
     }
 }

@@ -75,12 +75,20 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-nY-yP5">
+                                <rect key="frame" x="63" y="275" width="250" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98056994819999999" green="0.20657000610000001" blue="0.13641334939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="GBw-9v-CZT"/>
                     <connections>
+                        <outlet property="message" destination="6Ai-nY-yP5" id="xQn-bp-X3W"/>
                         <outlet property="passwordText" destination="e0T-B0-ph9" id="iTR-6b-DM3"/>
                         <outlet property="userNameText" destination="DBP-bR-amc" id="hkC-vT-UKa"/>
                     </connections>
@@ -585,6 +593,13 @@
                                     <segue destination="CG3-hb-4eQ" kind="show" identifier="PickDateSegue" id="pTc-aj-iM9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N87-Ad-P0n">
+                                <rect key="frame" x="37" y="613" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98056994818652854" green="0.20657000610218931" blue="0.1364133493700958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="rNu-A6-twD"/>
@@ -601,6 +616,7 @@
                         <outlet property="dateButton" destination="hDV-1K-4Yd" id="J7N-GL-Tyv"/>
                         <outlet property="descriptionText" destination="yQd-pF-Etk" id="Yxv-lI-8ZU"/>
                         <outlet property="locationText" destination="iwX-v4-QA6" id="NOX-BH-tgZ"/>
+                        <outlet property="message" destination="N87-Ad-P0n" id="jbb-V0-FbI"/>
                         <outlet property="nameText" destination="zpL-dx-TUz" id="c8N-Kq-QJr"/>
                         <outlet property="timeText" destination="iVO-a3-qeC" id="HcH-gW-q1N"/>
                     </connections>
@@ -658,6 +674,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDL-BZ-9UH">
+                                <rect key="frame" x="37" y="541" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98056994819999999" green="0.20657000610000001" blue="0.13641334939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xb-7C-Qog" colorLabel="IBBuiltInLabel-Red">
                                 <rect key="frame" x="67" y="116" width="240" height="355"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -680,6 +703,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="commentText" destination="9Xb-7C-Qog" id="LVR-u2-gZI"/>
+                        <outlet property="message" destination="eDL-BZ-9UH" id="XRC-Gw-ND2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quB-QR-yBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -812,7 +836,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="RSVP">
-                                    <color key="titleColor" red="1" green="0.59957326895004215" blue="0.090067910623952363" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.30866154739876456" green="0.68462597150259064" blue="0.44509369459673809" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="RSVPAction:" destination="JL2-C8-HRw" eventType="touchUpInside" id="vv0-bF-UGP"/>

@@ -14,14 +14,15 @@ class AddCommentViewController: UIViewController {
     var currentUser: CKRecord?
 
     @IBOutlet weak var commentText: UITextView!
+    @IBOutlet weak var message: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.message.text = ""
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func createCommentRecord() -> CKRecord?{
@@ -34,6 +35,17 @@ class AddCommentViewController: UIViewController {
         newRecord["Username"] = currentUser!["Username"]
         newRecord["Time"] = Date() as CKRecordValue
         return newRecord
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if commentText.text! != ""{
+            self.message.text = ""
+            return true
+        }
+        else{
+            self.message.text = "Missing comment body!"
+            return false
+        }
     }
 
 }

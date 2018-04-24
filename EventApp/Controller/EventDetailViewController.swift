@@ -27,7 +27,7 @@ class EventDetailViewController: UIViewController {
     @IBAction func RSVPAction(_ sender: Any) {
         var references: [CKReference]?
         if let myReferences = event!["RSVP"]{
-            references = myReferences as! [CKReference]
+            references = myReferences as? [CKReference]
             let newReference = CKReference(recordID: currentUser!.recordID, action: .none)
             if !references!.contains(newReference){
                 references!.append(newReference)

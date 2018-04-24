@@ -27,8 +27,8 @@ class UserDetailViewController: UIViewController {
             if let name = user["Name"] as? String{
                 nameLabel.text = name
             }
-            if let age = user["Age"] as? String{
-                ageLabel.text = age
+            if let age = user["Age"] as? Int{
+                ageLabel.text = String(age)
             }
             if let email = user["Email"] as? String{
                 emailLabel.text = email

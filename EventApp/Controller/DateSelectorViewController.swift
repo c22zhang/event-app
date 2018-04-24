@@ -14,13 +14,11 @@ class DateSelectorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(datePicker.date)
-        // Do any additional setup after loading the view.
+        datePicker.datePickerMode = UIDatePickerMode.date
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getDate() -> Date {
