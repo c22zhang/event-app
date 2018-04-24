@@ -29,7 +29,7 @@ class GoingTableViewController: UITableViewController {
     func fetchRSVPs(){
         if let going = peopleGoing{
             for record in going{
-                RSVPs.append(EventDetailViewController.getFromID(reference: record, database: CKContainer.default().privateCloudDatabase)!)
+                RSVPs.append(CKUtils.getFromID(reference: record, database: CKUtils.getPrivateDatabase())!)
             }
         }
     }

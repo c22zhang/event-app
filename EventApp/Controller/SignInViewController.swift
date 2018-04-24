@@ -25,16 +25,13 @@ class SignInViewController: UIViewController {
     }
     
     private func getUserFromDB(_ username: String ){
-        let privateDB = CKContainer.default().privateCloudDatabase
         let predicate = NSPredicate(format: "%K == %@", "Username", username)
         let query = CKQuery(recordType: "AppUser", predicate: predicate)
         let queryGroup = DispatchGroup()
         queryGroup.enter()
         DispatchQueue.global().async{
-            privateDB.perform(query, inZoneWith: nil) { (records: [CKRecord]?, error: Error?) -> Void in
-                if let error = error{
-                    print("An error occurred: \(error)")
-                    queryGroup.leave()
+            CKUtils.getPrivateDatabase().perform(query, inZoneWith: nil) { (records: [CKRecord]?, error: Error?) -> Void in
+                if CKUtils.handleError(error, "An error occurred when checking the database: ", queryGroup){
                     return
                 }
                 else if (records!.count == 0) || (records!.count > 1){
@@ -99,10 +96,8 @@ class SignInViewController: UIViewController {
         if let signupController = unwindSegue.source as? SignUpViewController{
             let record = signupController.createNewUser()
             if let newRecord = record{
-                let privateDB = CKContainer.default().privateCloudDatabase
-                privateDB.save(newRecord, completionHandler: { (ckRecord: CKRecord?, error: Error?) -> Void in
-                    if let error = error{
-                        print("An error occurred: \(error)")
+                CKUtils.getPrivateDatabase().save(newRecord, completionHandler: { (ckRecord: CKRecord?, error: Error?) -> Void in
+                    if CKUtils.handleError(error, "An error occurred when creating a new user: ", nil){
                         return
                     }
                 })

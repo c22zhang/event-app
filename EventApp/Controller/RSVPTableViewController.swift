@@ -20,13 +20,11 @@ class RSVPTableViewController: UITableViewController {
     }
     
     func loadMyRSVPdEvents() {
-        let publicDB = CKContainer.default().publicCloudDatabase
         let predicate = NSPredicate(format: "RSVP CONTAINS %@", currentUser!.recordID)
         let query = CKQuery(recordType: "Event", predicate: predicate)
-        publicDB.perform(query, inZoneWith: nil) { (ckRecords: [CKRecord]?, error: Error?) -> Void in
-            if let error = error{
-                print("\(error)")
-                return
+        CKUtils.getPublicDatabase().perform(query, inZoneWith: nil) { (ckRecords: [CKRecord]?, error: Error?) -> Void in
+            if CKUtils.handleError(error, "Error when loading events: ", nil){
+                return 
             }
             DispatchQueue.main.async{
                 self.myRSVPdEvents = ckRecords

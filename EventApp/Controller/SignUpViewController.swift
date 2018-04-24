@@ -56,20 +56,16 @@ class SignUpViewController: UIViewController {
     }
     
     private func determineDuplicateUser() -> Bool?{
-        var shouldSegue: Bool?
+        var shouldSegue: Bool? = false 
         let queryGroup = DispatchGroup()
         queryGroup.enter()
         if let username = userNameText.text{
-            let privateDB = CKContainer.default().privateCloudDatabase
             let predicate = NSPredicate(format: "%K == %@", "Username", username)
             let query = CKQuery(recordType: "AppUser", predicate: predicate)
             DispatchQueue.global().async{
-                privateDB.perform(query, inZoneWith: nil) { (records: [CKRecord]?, error: Error?) -> Void in
-                    if let error = error{
-                        print("An error occurred: \(error)")
-                        shouldSegue = false
-                        queryGroup.leave()
-                        return
+                CKUtils.getPrivateDatabase().perform(query, inZoneWith: nil) { (records: [CKRecord]?, error: Error?) -> Void in
+                    if CKUtils.handleError(error, "An error occurred when authenticating the user: ", queryGroup){
+                        return 
                     }
                     else if records!.count > 0{
                         print("User already exists")

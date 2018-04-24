@@ -20,12 +20,10 @@ class MyEventsTableViewController: UITableViewController {
     }
 
     func retrieveMyEvents(){
-        let publicDB = CKContainer.default().publicCloudDatabase
         let predicate = NSPredicate(format: "Creator = %@", currentUser!.recordID)
         let query = CKQuery(recordType: "Event", predicate: predicate)
-        publicDB.perform(query, inZoneWith: nil) { (ckRecords: [CKRecord]?, error: Error?) in
-            if let error = error{
-                print("An error occurred when fetching the records: \(error)")
+        CKUtils.getPublicDatabase().perform(query, inZoneWith: nil) { (ckRecords: [CKRecord]?, error: Error?) in
+            if CKUtils.handleError(error, "Error while retrieving events", nil){
                 return
             }
             DispatchQueue.main.async{

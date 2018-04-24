@@ -29,7 +29,7 @@ class CommentsTableViewController: UITableViewController {
         if let myReferences = event!["Comments"] {
             let references = myReferences as! [CKReference]
             for reference in references{
-                self.comments.append(EventDetailViewController.getFromID(reference: reference, database: CKContainer.default().publicCloudDatabase)!)
+                self.comments.append(CKUtils.getFromID(reference: reference, database: CKUtils.getPublicDatabase())!)
             }
         }
        
@@ -79,10 +79,8 @@ class CommentsTableViewController: UITableViewController {
      @IBAction func unwindNewComment(_ unwindSegue: UIStoryboardSegue){
         if let newCommentController = unwindSegue.source as? AddCommentViewController{
             let newRecord = newCommentController.createCommentRecord()
-            let publicDB = CKContainer.default().publicCloudDatabase
-            publicDB.save(newRecord!){ (ckRecord: CKRecord?, error: Error?) -> Void in
-                if let error = error{
-                    print("An error occurred while saving your comment \(error)")
+            CKUtils.getPublicDatabase().save(newRecord!){ (ckRecord: CKRecord?, error: Error?) -> Void in
+                if CKUtils.handleError(error, "An error occurred while saving your comments ", nil){
                     return
                 }
                 DispatchQueue.main.async{
@@ -108,9 +106,7 @@ class CommentsTableViewController: UITableViewController {
         updateCommentGroup.enter()
         DispatchQueue.global().async(){
             publicDB.save(self.event!) {(ckRecord: CKRecord?, error: Error?) -> Void in
-                if let error = error {
-                    print("An error occurred while updating the event \(error)")
-                    updateCommentGroup.leave()
+                if CKUtils.handleError(error, "An error occurred while updating the event ", updateCommentGroup){
                     return
                 }
                 else{

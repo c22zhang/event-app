@@ -39,10 +39,8 @@ class EventDetailViewController: UIViewController {
             references!.append(CKReference(recordID: currentUser!.recordID, action: .none))
             event!["RSVP"] = references! as CKRecordValue
         }
-        let publicDB = CKContainer.default().publicCloudDatabase
-        publicDB.save(event!) { (record: CKRecord?, error: Error?) in
-            if let error = error{
-                print("An error occurred while saving your RSVP \(error)")
+        CKUtils.getPublicDatabase().save(event!) { (record: CKRecord?, error: Error?) in
+            if CKUtils.handleError(error, "An error occurred while saving your RSVP", nil){
                 return
             }
             self.event = record
@@ -63,7 +61,7 @@ class EventDetailViewController: UIViewController {
             descriptionText.isEditable = false
             
             let creator: CKReference = event["Creator"] as! CKReference
-            creatorLabel.text = EventDetailViewController.getFromID(reference: creator, database: CKContainer.default().privateCloudDatabase)!["Username"] as? String
+            creatorLabel.text = CKUtils.getFromID(reference: creator, database: CKUtils.getPrivateDatabase())!["Username"] as? String
             
             if isOwner(){
                 deleteButton.isEnabled = true
@@ -77,33 +75,10 @@ class EventDetailViewController: UIViewController {
     
     func isOwner() -> Bool{
         let creator = event!["Creator"] as! CKReference
-        let creatorRecord = EventDetailViewController.getFromID(reference: creator, database: CKContainer.default().privateCloudDatabase)
+        let creatorRecord = CKUtils.getFromID(reference: creator, database: CKUtils.getPrivateDatabase())
         return creatorRecord!.recordID == currentUser!.recordID
     }
     
-    static func getFromID(reference: CKReference, database: CKDatabase) -> CKRecord? {
-        var creator: CKRecord?
-        let id = reference.recordID
-        let fetchGroup = DispatchGroup()
-        fetchGroup.enter()
-        DispatchQueue.global().async{
-            database.fetch(withRecordID: id){ (record: CKRecord?, error: Error?) -> Void in
-                if let error = error{
-                    print("An error occurred when fetching the record: \(error)")
-                    fetchGroup.leave()
-                    return
-                }
-                else{
-                    creator = record
-                    fetchGroup.leave()
-                    return
-                }
-            }
-        }
-        fetchGroup.wait()
-        return creator
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

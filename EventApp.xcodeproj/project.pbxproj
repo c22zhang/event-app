@@ -29,6 +29,7 @@
 		BD5BF834208EB8D50021F468 /* RSVPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF833208EB8D50021F468 /* RSVPTableViewController.swift */; };
 		BD5BF836208EC94A0021F468 /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF835208EC94A0021F468 /* MyEventsTableViewController.swift */; };
 		BD5BF838208EDAD10021F468 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BF837208EDAD10021F468 /* UserDetailViewController.swift */; };
+		BD6D6345208EEA7400A295E0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6D6344208EEA7400A295E0 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		BD5BF833208EB8D50021F468 /* RSVPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSVPTableViewController.swift; sourceTree = "<group>"; };
 		BD5BF835208EC94A0021F468 /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsTableViewController.swift; sourceTree = "<group>"; };
 		BD5BF837208EDAD10021F468 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		BD6D6344208EEA7400A295E0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				BD38286C208BDF1000705757 /* Assets.xcassets */,
 				BD38286E208BDF1000705757 /* LaunchScreen.storyboard */,
 				BD382871208BDF1000705757 /* Info.plist */,
+				BD6D6344208EEA7400A295E0 /* Utils.swift */,
 			);
 			path = EventApp;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				BD5354BE208D53180064D3C9 /* EventDetailViewController.swift in Sources */,
 				BD5354C4208DA3930064D3C9 /* CommentDetailViewController.swift in Sources */,
 				BD382866208BDF1000705757 /* AppDelegate.swift in Sources */,
+				BD6D6345208EEA7400A295E0 /* Utils.swift in Sources */,
 				BD5BF836208EC94A0021F468 /* MyEventsTableViewController.swift in Sources */,
 				BD5BF838208EDAD10021F468 /* UserDetailViewController.swift in Sources */,
 				BD5354B5208C0F200064D3C9 /* SignInViewController.swift in Sources */,

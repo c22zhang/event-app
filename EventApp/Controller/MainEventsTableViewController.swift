@@ -9,17 +9,7 @@
 import UIKit
 import CloudKit
 
-/*
- Handy date to String extension from https://stackoverflow.com/questions/42524651/convert-nsdate-to-string-in-ios-swift
- */
-public extension Date{
-    func toString( dateFormat format  : String ) -> String
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
-    }
-}
+
 
 class MainEventsTableViewController: UITableViewController {
 
@@ -36,12 +26,10 @@ class MainEventsTableViewController: UITableViewController {
     }
     
     private func fetchEvents(){
-        let publicDB = CKContainer.default().publicCloudDatabase
         let predicate = NSPredicate(format: "TRUEPREDICATE")
         let query = CKQuery(recordType: "Event", predicate: predicate)
-        publicDB.perform(query, inZoneWith: nil){(records: [CKRecord]?, error: Error?) -> Void in
-            if let error = error{
-                print("An error occurred while loading the events \(error)")
+        CKUtils.getPublicDatabase().perform(query, inZoneWith: nil){(records: [CKRecord]?, error: Error?) -> Void in
+            if CKUtils.handleError(error, "An error occurred while loading the events: ", nil){
                 return
             }
             if let records = records{
@@ -104,10 +92,8 @@ class MainEventsTableViewController: UITableViewController {
     @IBAction func unwindChangedUser(_ unwindSegue: UIStoryboardSegue){
         if let source = unwindSegue.source as? ChangeAccountViewController{
             self.currentUser = source.editUserData()
-            let privateDB = CKContainer.default().privateCloudDatabase
-            privateDB.save(self.currentUser!, completionHandler: { (record: CKRecord?, error: Error?) -> Void in
-                if let error = error{
-                    print("Error when saving updated account info: \(error)")
+            CKUtils.getPrivateDatabase().save(self.currentUser!, completionHandler: { (record: CKRecord?, error: Error?) -> Void in
+                if CKUtils.handleError(error, "Error when saving updated account info: ", nil){
                     return
                 }
             })
@@ -116,10 +102,8 @@ class MainEventsTableViewController: UITableViewController {
     
     @IBAction func unwindNewEvent(_ unwindSegue: UIStoryboardSegue){
         if let source = unwindSegue.source as? CreateEventsViewController{
-            let publicDB = CKContainer.default().publicCloudDatabase
-            publicDB.save(source.createNewEvent()!, completionHandler: { (record: CKRecord?, error: Error?) in
-                if let error = error{
-                    print("Error saving your new event \(error)")
+            CKUtils.getPublicDatabase().save(source.createNewEvent()!, completionHandler: { (record: CKRecord?, error: Error?) in
+                if CKUtils.handleError(error, "Error saving the event: ", nil){
                     return
                 }
                 DispatchQueue.main.async{
@@ -133,10 +117,8 @@ class MainEventsTableViewController: UITableViewController {
     @IBAction func unwindDeleteEvent(_ unwindSegue: UIStoryboardSegue){
         if let source = unwindSegue.source as? EventDetailViewController{
             let recordID = source.event!.recordID
-            let publicDB = CKContainer.default().publicCloudDatabase
-            publicDB.delete(withRecordID: recordID, completionHandler: { (id: CKRecordID?, error: Error?) in
-                if let error = error{
-                    print("Error deleting your event: \(error)")
+            CKUtils.getPublicDatabase().delete(withRecordID: recordID, completionHandler: { (id: CKRecordID?, error: Error?) in
+                if CKUtils.handleError(error, "Error when deleting the event: ", nil){
                     return
                 }
                 DispatchQueue.main.async{
