@@ -1,7 +1,7 @@
 //
 //  MainEventsTableViewController.swift
 //  EventApp
-//
+//  Screen that displays all events as a table view.
 //  Created by Christopher Zhang on 4/21/18.
 //  Copyright © 2018 Christopher Zhang. All rights reserved.
 //

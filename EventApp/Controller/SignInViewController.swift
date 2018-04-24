@@ -1,7 +1,8 @@
 //
 //  SignInViewController.swift
 //  EventApp
-//
+//  
+//  Screen where users can sign in
 //  Created by Christopher Zhang on 4/21/18.
 //  Copyright © 2018 Christopher Zhang. All rights reserved.
 //

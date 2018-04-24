@@ -9,17 +9,26 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
 /*
  Handy date to String extension from
  https://stackoverflow.com/questions/42524651/convert-nsdate-to-string-in-ios-swift
  */
 public extension Date{
-    func toString( dateFormat format  : String ) -> String
-    {
+    func toString( dateFormat format  : String ) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
+    }
+}
+
+public extension UIAlertController{
+    //creates an alert
+    static func createAlert(_ title: String, _ message: String) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return alert
     }
 }
 
@@ -67,8 +76,9 @@ public class CKUtils {
             return true
         }
         return false
-    
     }
+    
+
 }
 
 

@@ -1,7 +1,7 @@
 //
 //  SignUpViewController.swift
 //  EventApp
-//
+//  Screen where the user can sign up for the Event app service
 //  Created by Christopher Zhang on 4/21/18.
 //  Copyright © 2018 Christopher Zhang. All rights reserved.
 //

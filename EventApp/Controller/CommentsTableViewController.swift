@@ -1,7 +1,7 @@
 //
 //  CommentsTableViewController.swift
 //  EventApp
-//
+//  Screen that displays all comments associated with an event
 //  Created by Christopher Zhang on 4/23/18.
 //  Copyright © 2018 Christopher Zhang. All rights reserved.
 //

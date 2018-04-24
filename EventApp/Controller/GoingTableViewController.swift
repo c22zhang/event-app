@@ -1,7 +1,7 @@
 //
 //  GoingTableViewController.swift
 //  EventApp
-//
+//  Table view that displays who has RSVPd to an event
 //  Created by Christopher Zhang on 4/22/18.
 //  Copyright © 2018 Christopher Zhang. All rights reserved.
 //
