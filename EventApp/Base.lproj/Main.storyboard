@@ -495,8 +495,6 @@
         <!--Create New Event-->
         <scene sceneID="Ctf-VP-A5T">
             <objects>
-                <exit id="2x2-eu-Bfg" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wCU-o0-qlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xRW-yt-Foe" customClass="CreateEventsViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i2Z-90-8IY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -607,6 +605,8 @@
                         <outlet property="timeText" destination="iVO-a3-qeC" id="HcH-gW-q1N"/>
                     </connections>
                 </viewController>
+                <exit id="2x2-eu-Bfg" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCU-o0-qlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2381.5999999999999" y="949.47526236881572"/>
         </scene>
@@ -808,11 +808,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzF-kP-Kod">
-                                <rect key="frame" x="169" y="617" width="38" height="30"/>
+                                <rect key="frame" x="168" y="589" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="RSVP">
-                                    <color key="titleColor" red="1" green="0.18769601120000001" blue="0.1657394858" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="1" green="0.59957326895004215" blue="0.090067910623952363" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="RSVPAction:" destination="JL2-C8-HRw" eventType="touchUpInside" id="vv0-bF-UGP"/>
@@ -825,6 +825,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYx-OZ-EPC">
+                                <rect key="frame" x="165" y="617" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.18769601120000001" blue="0.1657394858" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NOh-yq-ROE" kind="unwind" unwindAction="unwindDeleteEvent:" id="y4J-o8-E5d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="p08-0K-hom"/>
@@ -840,6 +850,7 @@
                         <outlet property="costLabel" destination="IXY-2o-9cO" id="xOE-tS-OOF"/>
                         <outlet property="creatorLabel" destination="nsG-de-Oaf" id="kpl-kF-FDy"/>
                         <outlet property="dateLabel" destination="mK5-VX-dpM" id="rAA-cc-fBR"/>
+                        <outlet property="deleteButton" destination="tYx-OZ-EPC" id="rZz-SB-0LF"/>
                         <outlet property="descriptionText" destination="ddG-Fq-DbP" id="h1k-HN-UAo"/>
                         <outlet property="locationLabel" destination="7hS-Ph-WQg" id="h5M-6M-OFq"/>
                         <outlet property="nameLabel" destination="ZmQ-z2-Y2U" id="vfT-NK-TUB"/>
@@ -847,6 +858,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Spu-xB-Odk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NOh-yq-ROE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2272.8000000000002" y="133.5832083958021"/>
         </scene>

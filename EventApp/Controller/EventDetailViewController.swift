@@ -18,9 +18,11 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var creatorLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var event: CKRecord?
     var currentUser: CKRecord?
+    var ownedByCurrentUser: Bool?
     
     @IBAction func RSVPAction(_ sender: Any) {
         var references: [CKReference]?
@@ -62,7 +64,21 @@ class EventDetailViewController: UIViewController {
             
             let creator: CKReference = event["Creator"] as! CKReference
             creatorLabel.text = EventDetailViewController.getFromID(reference: creator, database: CKContainer.default().privateCloudDatabase)!["Username"] as? String
+            
+            if isOwner(){
+                deleteButton.isEnabled = true
+            }
+            else{
+                deleteButton.isEnabled = false
+              deleteButton.setTitleColor(UIColor.lightGray, for: .disabled)
+            }
         }
+    }
+    
+    func isOwner() -> Bool{
+        let creator = event!["Creator"] as! CKReference
+        let creatorRecord = EventDetailViewController.getFromID(reference: creator, database: CKContainer.default().privateCloudDatabase)
+        return creatorRecord!.recordID == currentUser!.recordID
     }
     
     static func getFromID(reference: CKReference, database: CKDatabase) -> CKRecord? {

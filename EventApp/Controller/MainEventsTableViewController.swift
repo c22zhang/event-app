@@ -116,7 +116,6 @@ class MainEventsTableViewController: UITableViewController {
     
     @IBAction func unwindNewEvent(_ unwindSegue: UIStoryboardSegue){
         if let source = unwindSegue.source as? CreateEventsViewController{
-            print(source.createNewEvent())
             let publicDB = CKContainer.default().publicCloudDatabase
             publicDB.save(source.createNewEvent()!, completionHandler: { (record: CKRecord?, error: Error?) in
                 if let error = error{
@@ -125,6 +124,23 @@ class MainEventsTableViewController: UITableViewController {
                 }
                 DispatchQueue.main.async{
                     self.events!.append(record!)
+                    self.tableView.reloadData()
+                }
+            })
+        }
+    }
+    
+    @IBAction func unwindDeleteEvent(_ unwindSegue: UIStoryboardSegue){
+        if let source = unwindSegue.source as? EventDetailViewController{
+            let recordID = source.event!.recordID
+            let publicDB = CKContainer.default().publicCloudDatabase
+            publicDB.delete(withRecordID: recordID, completionHandler: { (id: CKRecordID?, error: Error?) in
+                if let error = error{
+                    print("Error deleting your event: \(error)")
+                    return
+                }
+                DispatchQueue.main.async{
+                    self.fetchEvents()
                     self.tableView.reloadData()
                 }
             })
