@@ -90,6 +90,8 @@
                     <connections>
                         <outlet property="message" destination="6Ai-nY-yP5" id="xQn-bp-X3W"/>
                         <outlet property="passwordText" destination="e0T-B0-ph9" id="iTR-6b-DM3"/>
+                        <outlet property="signInButton" destination="1L0-hD-Jj7" id="UbQ-KD-SPe"/>
+                        <outlet property="signUpButton" destination="kBc-fy-86W" id="8b5-97-QFc"/>
                         <outlet property="userNameText" destination="DBP-bR-amc" id="hkC-vT-UKa"/>
                     </connections>
                 </viewController>
