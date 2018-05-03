@@ -30,3 +30,7 @@ I am missing some things like displaying all of other users' events from the use
 
 ### My Model
 Since I didn't realize there was an institutional developer team for Case while creating my data model, and you can't access my Apple account, I've posted screenshots of my Cloudkit dashboard within my submission for your convenience. Please contact me if you need me to show you more. They are in a folder titled "Cloudkit screenshots".
+
+NOTE: you will need to log into iCloud in order to use CloudKit and this app. If the app detects that there is no iCloud account, it will display an alert and prompt you to log in to your iCloud account through settings.
+
+NOTE 2: I didn't get a chance to implement auto-layout for the UI, so some of the iPhone versions kinda screws up the formatting. The actual functionality of the app doesn't break, but the UI might not be centered in all the iPhone versions from the simulator. I've found that iPhone 7, 8 and X have the best formatting.
