@@ -2,7 +2,7 @@
 
 ## iOS Final Project Proposal
 
-### Edit: 4/24; These are the parts I have implemented as of now:
+### Edit: 5/03; These are the parts I have implemented as of now:
 1. People using the app will be able to make accounts with usernames and passwords
 2. After creating an account, users will be able to log in and come to a screen displaying events that have been posted publicly to the application
 3. Users will also be allowed to change account information (username, password, etc.)
@@ -17,33 +17,16 @@
 
 I am missing some things like displaying all of other users' events from the user detail screen and editing owned events. As I am pretty short on time due to other commitments I need to make, I may or may not be able to implement these features before the deadline.
 
+### Use instructions
+1. If you want to login using a premade account, here are some accounts you can use:
+    - username: dev, password: password
+    - username: chriszhang, password: eventapp
+2. Otherwise, click on the sign in button on the bottom of the first screen, and fill out all of the required fields to create a new account. Afterwards, log in using the username and password you created.
+3a. After logging in, you will be greeted with a landing page with all the events that users have created. If you tap one of the events, you will be greeted with the details of that event, including the ability to view comments, RSVP, and view people who have RSVP'd and their accounts. Otherwise there is a bar button that takes you to the user dashboard (really just options). 
+3b. Note that you will only allowed to delete an event if you own it. If you own the event, the delete button changes colors from gray to red.
+4. If you are on the screen and can view the people who have RSVP'd, you can also tap their name and their account info will be displayed.
+5. You can add comments if you're on the comments table view by tapping the plus button.
+6. If you go to the user dashboard from the main landing page, you'll see buttons to create an event, display events you own, display events you've RSVP'd to, and change your account info. I think these are pretty intuitive to figure out, since their views work pretty similarly to the other stuff in the app.
 
-### a) What you want to develop (i.e., the main goal of your app)? what are already available out there? If there are already apps for the same purpose, why you want to re-develop it (market analysis)? Will it be free or you want to sell it (business model)? How much is your cost (e.g. time), will you be able to recover the cost? What is your expected profit within one year of your release?
-
-I will be developing an app that allows users to host, organize, and advertise their events, gatherings, etc. This is similar to apps out there like Facebook events, Eventbrite, etc. 
-Since the functionality of my app will not differ too much from what is already out there, I will mostly be developing this for personal educational purposes (i.e. learn how to manage user data across networks/multiple devices, how to let users interact with each other through the app, etc.). The format is familiar to me, and I think that the skills I learn developing this app will be incredibly useful for developing future applications in industry/startup. 
-This application will be free, and I expect it will take me roughly 2 to 3 weeks to develop the basic functionalities (or however long I have until this is due). I doubt I will be able to recover the monetary cost, since I do not expect to be making much profit within one year of the release.
-
-
-### b) The main functionalities of your app. You can provide a list with brief explanation. You can discuss with me about the scope/effort to implement those functions if needed. 
-
-Functionalities:
-- People using the app will be able to make accounts with usernames and passwords
-- After creating an account, users will be able to log in and come to a screen displaying events that have been posted publicly to the application
-- Users will also be allowed to change account information (username, password, etc.)
-- Upon selecting an event, the app will show a new screen displaying the details of the event (event name, title, description, time, cost, people going) and the user will be allowed to RSVP for the event by pressing a button
-- The event detail screen also has a segue to another screen which will display all the users that have RSVP’d to that event
-- If you select a user’s name on the RSVP’d list, a screen will appear displaying that user’s (public) information. This will also display any event listings that the user has posted.
-- Upon pressing the RSVP button, the current user’s name will be added to the people who have RSVP’d 
-- There will be another screen that will allow users to post comments to the event. All previous comments from all other users will be displayed as well.
-- Users will be able to create their own events as well by specifying the necessary details about their event
-- Users will be able to delete/edit their events so long as they are the user that has posted the event
-- Users will also be able to keep track of all the events they have RSVP’d to
-
-
-### Stretch Goals (these may or may not be implemented depending on time. I can move some of these to functionalities if you think the scope of my app isn’t large enough)
-- Create an upvote/downvote system that allows users to vote on whether or not they like an event posting or not. The main screen showing all events will be a table view that can be sorted from most to least upvotes and vice versa.
-- Integrate MapKit into the application. If the location of the event can be found using the map API, then display a map in the event detail screen with an annotation at the event location. Also, calculate distance between the user and the event, and add feature to sort events based on distance
-- Automatically delete events which have expired based on time from the databases 
-- Allow users to upload images of their event, since CloudKit databases support assets as well. Display these images somewhere in the event detail screen
-- Allow users to private message each other users
+## My Model.
+Since I didn't realize there was an institutional developer team for Case while creating my data model, and you can't access my Apple account, I've posted screenshots of my Cloudkit dashboard within my submission for your convenience. Please contact me if you need me to show you more.
