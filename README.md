@@ -28,5 +28,5 @@ I am missing some things like displaying all of other users' events from the use
 5. You can add comments if you're on the comments table view by tapping the plus button.
 6. If you go to the user dashboard from the main landing page, you'll see buttons to create an event, display events you own, display events you've RSVP'd to, and change your account info. I think these are pretty intuitive to figure out, since their views work pretty similarly to the other stuff in the app.
 
-## My Model.
-Since I didn't realize there was an institutional developer team for Case while creating my data model, and you can't access my Apple account, I've posted screenshots of my Cloudkit dashboard within my submission for your convenience. Please contact me if you need me to show you more.
+### My Model
+Since I didn't realize there was an institutional developer team for Case while creating my data model, and you can't access my Apple account, I've posted screenshots of my Cloudkit dashboard within my submission for your convenience. Please contact me if you need me to show you more. They are in a folder titled "Cloudkit screenshots".
