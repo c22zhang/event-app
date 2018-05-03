@@ -24,6 +24,9 @@ class MyEventsTableViewController: UITableViewController {
         let query = CKQuery(recordType: "Event", predicate: predicate)
         CKUtils.getPublicDatabase().perform(query, inZoneWith: nil) { (ckRecords: [CKRecord]?, error: Error?) in
             if CKUtils.handleError(error, "Error while retrieving events", nil){
+                DispatchQueue.main.async {
+                    self.present(CKUtils.createAlert("Error retrieving events.", "Could not connect to server and retrieve your events."), animated: true, completion: nil)
+                }
                 return
             }
             DispatchQueue.main.async{

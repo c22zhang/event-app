@@ -20,6 +20,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         message.text = ""
@@ -27,8 +29,7 @@ class SignInViewController: UIViewController {
             //Check if user is logged in to iCloud - required for CloudKit
             //Code from Apple CloudKit documentation
             if accountStatus == .noAccount {
-                let alert = UIAlertController(title: "Sign in to iCloud", message: "Sign in to your iCloud account to use the application. On the Home screen, launch Settings, tap iCloud or select 'Sign into your iPhone', and enter your Apple ID.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                let alert = CKUtils.createAlert("Sign in to iCloud", "Sign in to your iCloud account to use the application. On the Home screen, launch Settings, tap iCloud or select 'Sign into your iPhone', and enter your Apple ID.")
                 self.present(alert, animated: true, completion: nil)
                 self.message.text = "Please sign in to iCloud"
             }
@@ -88,6 +89,8 @@ class SignInViewController: UIViewController {
             }
         }
         self.message.text = "Invalid username or password."
+        let alert = CKUtils.createAlert("Could not log in.", "Invalid username or password")
+        self.present(alert, animated: true, completion: nil)
         return false
     }
     
@@ -115,6 +118,9 @@ class SignInViewController: UIViewController {
             if let newRecord = record{
                 CKUtils.getPrivateDatabase().save(newRecord, completionHandler: { (ckRecord: CKRecord?, error: Error?) -> Void in
                     if CKUtils.handleError(error, "An error occurred when creating a new user: ", nil){
+                        DispatchQueue.main.async{
+                            self.present(CKUtils.createAlert("Error", "Could not create new user - maybe you were missing some fields in the sign in menu?"), animated: true, completion: nil)
+                        }
                         return
                     }
                 })

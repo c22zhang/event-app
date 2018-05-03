@@ -65,11 +65,17 @@ class SignUpViewController: UIViewController {
             DispatchQueue.global().async{
                 CKUtils.getPrivateDatabase().perform(query, inZoneWith: nil) { (records: [CKRecord]?, error: Error?) -> Void in
                     if CKUtils.handleError(error, "An error occurred when authenticating the user: ", queryGroup){
+                        DispatchQueue.main.async {
+                              self.present(CKUtils.createAlert("Connection error", "Could not connect to the server"), animated: true, completion: nil)
+                        }
                         return 
                     }
                     else if records!.count > 0{
                         print("User already exists")
                         shouldSegue = false
+                        DispatchQueue.main.async {
+                             self.present(CKUtils.createAlert("User Already Exists", "Could not create a new user that already exists"), animated: true, completion: nil)
+                        }
                         queryGroup.leave()
                         return
                     }
@@ -81,8 +87,6 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
-        //there's currently a bit of delay with the Dispatch queues as the username is authenticated
-        //something to do in the future is to add some notifications/progress bar to make this more user friendly
         queryGroup.wait()
         return shouldSegue
     }

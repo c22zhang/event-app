@@ -24,6 +24,9 @@ class RSVPTableViewController: UITableViewController {
         let query = CKQuery(recordType: "Event", predicate: predicate)
         CKUtils.getPublicDatabase().perform(query, inZoneWith: nil) { (ckRecords: [CKRecord]?, error: Error?) -> Void in
             if CKUtils.handleError(error, "Error when loading events: ", nil){
+                DispatchQueue.main.async {
+                    self.present(CKUtils.createAlert("Error loading events.", "Could not connect to the server and retrieve events."), animated: true, completion: nil)
+                }
                 return 
             }
             DispatchQueue.main.async{

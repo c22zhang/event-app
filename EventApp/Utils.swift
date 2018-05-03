@@ -25,14 +25,16 @@ public extension Date{
 
 public extension UIAlertController{
     //creates an alert
+    
+}
+
+public class CKUtils {
+    
     static func createAlert(_ title: String, _ message: String) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         return alert
     }
-}
-
-public class CKUtils {
     
     //returns the default public database
     public static func getPublicDatabase() -> CKDatabase {

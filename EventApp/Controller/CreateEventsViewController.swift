@@ -73,6 +73,7 @@ class CreateEventsViewController: UIViewController {
         }
         else{
             if !hasAllRequiredFields(){
+                self.present(CKUtils.createAlert("Missing required fields!", "All of the fields are required to create a new account. Please fill them in with the appropriate info."), animated: true, completion: nil)
                 self.message.text = "Missing required fields!"
             }
             else{

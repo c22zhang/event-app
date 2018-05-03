@@ -81,6 +81,9 @@ class CommentsTableViewController: UITableViewController {
             let newRecord = newCommentController.createCommentRecord()
             CKUtils.getPublicDatabase().save(newRecord!){ (ckRecord: CKRecord?, error: Error?) -> Void in
                 if CKUtils.handleError(error, "An error occurred while saving your comments ", nil){
+                    DispatchQueue.main.async{
+                        self.present(CKUtils.createAlert("Error Saving", "Could not connect to the server to save your comment."), animated: true, completion: nil)
+                    }
                     return
                 }
                 DispatchQueue.main.async{

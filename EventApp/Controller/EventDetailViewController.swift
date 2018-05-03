@@ -41,6 +41,9 @@ class EventDetailViewController: UIViewController {
         }
         CKUtils.getPublicDatabase().save(event!) { (record: CKRecord?, error: Error?) in
             if CKUtils.handleError(error, "An error occurred while saving your RSVP", nil){
+                DispatchQueue.main.async {
+                    self.present(CKUtils.createAlert("Error saving", "Could not connect to servers to save your RSVP."), animated: true, completion: nil)
+                }
                 return
             }
             self.event = record

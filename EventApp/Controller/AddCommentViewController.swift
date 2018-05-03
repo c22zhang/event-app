@@ -43,6 +43,7 @@ class AddCommentViewController: UIViewController {
             return true
         }
         else{
+            self.present(CKUtils.createAlert("Missing Comment Body", "There is no text in the body of your comment!"), animated: true, completion: nil)
             self.message.text = "Missing comment body!"
             return false
         }
